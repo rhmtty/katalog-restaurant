@@ -108,45 +108,71 @@ header {
 }
 
 // Konten
-.content {
-    margin-bottom: 50px;
+.main-content {
+    margin-bottom: 70px;
+    padding: 0 25px;
 
     .content-title {
-        font-weight: bold;
-        margin-bottom: 2em;
+        font-size: 2em;
         text-align: center;
+        font-weight: 600;
     }
 
     .resto-lists {
-        width: 100%;
+        margin-top: 70px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 50px;
 
         .resto-item {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            padding: 15px 90px;
-
-            .resto-item-thumbnail {
+            position: relative;
+            overflow: hidden;
+            
+            .img-thumbnail {
                 width: 100%;
-                height: 90%;
+                height: 35vw;
                 object-fit: cover;
-                background-size: cover;
             }
 
-            .resto-item-content {
-                padding: 20px;
+            .city {
+                position: absolute;
+                text-align: center;
+                padding: 7px;
+                background-color: #064420;
+                color: #e4efe7;
+                width: 30%;
+                top: 5%;
+            }
 
-                .resto-item-title {
+            .rating {
+                position: absolute;
+                top: 5%;
+                right: 0;
+                padding: 7px;
+                width: 15%;
+                background-color: #064420;
+                color: #e4efe7;
+            }
+
+            .content {
+                position: absolute;
+                top: 60%;
+                padding: 0 10px;
+                height: 100%;
+                background-color: rgba(0,0,0,.7);
+                color: #faf1e6;
+
+                a {
+                    color: #faf1e6;
+                    font-weight: 600;
                     font-size: 28px;
-                    margin-bottom: 25px;
 
-                    a {
-                        color: #424242;
+                    &:hover {
+                        position: relative;
+                        left: 3px;
+                        bottom: 5px;
                     }
-                }
-
-                .resto-item-description {
-                    font-size: 20px;
-                }
+                }    
             }
         }
     }
@@ -155,8 +181,8 @@ header {
 // Footer
 footer {
     text-align: center;
-    height: 45px;
-    line-height: 45px;
+    height: 50px;
+    line-height: 50px;
     color: #e4efe7;
     background-color: #064420;
     font-weight: 900;
