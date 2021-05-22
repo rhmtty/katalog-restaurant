@@ -1,14 +1,14 @@
-@media screen and (max-width: 865px) {
+@media screen and (max-width: 868px) {
     header {
         nav {
             // z-index: 10;
             background-color: #fff;
             width: 100%;
-            position: absolute;
+            position: fixed;
 
             /* This trasform moves the drawer off canvas. */
             -webkit-transform: translate(0, 0);
-            transform: translate(0, calc(-160px - 100%));
+            transform: translate(-15px, -160%);
 
             /* Optionally, we animate the drawer. */
             transition: transform 0.3s ease;
@@ -32,7 +32,7 @@
 
         .menu-mobile {
             -webkit-transform: translate(0, 0);
-            transform: translate(0, 75px);
+            transform: translate(-15px, 75px);
         }
 
         .hamburger {
