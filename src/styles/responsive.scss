@@ -40,3 +40,75 @@
         }
     }
 }
+
+@media screen and (min-width: 320px) {
+    main {
+        .hero-wrapper {
+            font-size: 12px;
+        }
+
+        .main-content > .resto-lists {
+            grid-template-columns: 1fr;
+            padding: 45px 0;
+            row-gap: 15px;
+            
+            .resto-item {
+                width: 100%;
+
+                .img-thumbnail {
+                    height: 80vh;
+                }
+
+                .content {
+                    top: 60%;
+                    
+                    .description {
+                        font-size: 21px;
+                        -webkit-line-clamp: 3;
+                    }
+                } 
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 550px) {
+    main {
+        .hero-wrapper > .hero-description {
+            font-size: 16px;
+        }
+
+        .main-content > .resto-lists {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 13px 25px;
+            
+            .resto-item {
+                width: 100%;
+
+                .img-thumbnail {
+                    height: 50vh;
+                }
+
+                .content > .description {
+                    font-size: 21px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1100px) {
+    main {
+        .hero-wrapper > .hero-description {
+            font-size: 20px;
+        }
+
+        .main-content > .resto-lists {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+    
+            
+        }
+    } 
+}
