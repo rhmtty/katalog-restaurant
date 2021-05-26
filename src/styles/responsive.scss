@@ -1,4 +1,4 @@
-@media screen and (max-width: 868px) {
+@media screen and (max-width: 870px) {
     header {
         nav {
             // z-index: 10;
@@ -37,6 +37,7 @@
 
         .hamburger {
             display: block;
+            cursor: pointer;
         }
     }
 }
