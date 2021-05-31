@@ -113,7 +113,7 @@ header {
                 transition: all 0.5s;
                 position: relative;
     
-                &:hover {
+                &:hover, &:focus {
                     background-color: #424242;
                     text-decoration: overline #e4efe7;
                     color: #fdfaf6;
@@ -225,7 +225,7 @@ main {
                         position: relative;
                         left: 0;
                         
-                        &:hover {
+                        &:hover, &:focus {
                             border-bottom: 1px solid #faf1e6;
                             left: 4px;
                         }
