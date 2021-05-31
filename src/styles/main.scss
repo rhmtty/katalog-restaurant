@@ -109,13 +109,15 @@ header {
                 font-weight: bold;
                 font-size: 17px;
                 color: #fdfaf6;
+                bottom: 0;
+                transition: all 0.5s;
+                position: relative;
     
                 &:hover {
                     background-color: #424242;
-                    text-decoration: overline;
-                    transition: all 0.3s;
-                    bottom: 3px;
-                    position: relative;
+                    text-decoration: overline #e4efe7;
+                    color: #fdfaf6;
+                    bottom: 4px;
                 }
             }
         }
@@ -218,24 +220,14 @@ main {
                         font-weight: 600;
                         font-size: 28px;
                         padding: 0.2em 0;
-    
+                        border-bottom: 0 solid transparent;
+                        transition: all 0.3s linear;
+                        position: relative;
+                        left: 0;
+                        
                         &:hover {
-                            -webkit-transition: all 1s ease;
-                            -moz-transition: all 1s ease;
-                            -o-transition: all 1s ease;
-                            -ms-transition: all 1s ease;
-                            transition: all 1s ease;
                             border-bottom: 1px solid #faf1e6;
-                        }
-
-                        &:focus {
-                            overflow: hidden;
-                            -webkit-transition: all 1s ease;
-                            -moz-transition: all 1s ease;
-                            -o-transition: all 1s ease;
-                            -ms-transition: all 1s ease;
-                            transition: all 1s ease;
-                            border-bottom: 1px solid #424242;
+                            left: 4px;
                         }
                     }
     
