@@ -58,7 +58,19 @@ header {
     z-index: 10;
     color: #fdfaf6;
     transition: all 0.3s;
-   
+
+    .hamburger {
+        font-size: 2rem;
+        margin: 20px 20px 10px 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        display: none;
+        color: #fdfaf6;
+        min-width: 44px;
+        min-height: 44px;
+        text-align: center;
+    }
     
     .header-logo {
        display: grid;
@@ -108,15 +120,6 @@ header {
             }
         }
     
-    }
-
-    .hamburger {
-        font-size: 2rem;
-        margin: 20px 20px 10px 0;
-        position: absolute;
-        right: 0;
-        top: 0;
-        display: none;
     }
 }
 
@@ -204,7 +207,7 @@ main {
     
                 .content {
                     position: absolute;
-                    top: 60%;
+                    top: 65%;
                     bottom: 0;
                     padding: 0 10px;
                     background-color: rgba(0,0,0,.7);
@@ -214,6 +217,7 @@ main {
                         color: #faf1e6;
                         font-weight: 600;
                         font-size: 28px;
+                        padding: 0.2em 0;
     
                         &:hover {
                             -webkit-transition: all 1s ease;
@@ -221,7 +225,17 @@ main {
                             -o-transition: all 1s ease;
                             -ms-transition: all 1s ease;
                             transition: all 1s ease;
-                            border: 1px solid #424242;
+                            border-bottom: 1px solid #faf1e6;
+                        }
+
+                        &:focus {
+                            overflow: hidden;
+                            -webkit-transition: all 1s ease;
+                            -moz-transition: all 1s ease;
+                            -o-transition: all 1s ease;
+                            -ms-transition: all 1s ease;
+                            transition: all 1s ease;
+                            border-bottom: 1px solid #424242;
                         }
                     }
     

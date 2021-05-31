@@ -1,5 +1,10 @@
 @media screen and (max-width: 870px) {
     header {
+        .hamburger {
+            display: block;
+            cursor: pointer;
+        }
+
         nav {
             // z-index: 10;
             background-color: #fff;
@@ -34,11 +39,6 @@
             -webkit-transform: translate(0, 0);
             transform: translate(-15px, 70px);
         }
-
-        .hamburger {
-            display: block;
-            cursor: pointer;
-        }
     }
 }
 
@@ -61,13 +61,13 @@
                 }
 
                 .content {
-                    top: 60%;
+                    top: 55%;
                     
                     .description {
                         font-size: 21px;
                         -webkit-line-clamp: 3;
                     }
-                } 
+                }
             }
         }
     }
