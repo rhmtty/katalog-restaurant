@@ -22,14 +22,20 @@
                 flex-direction: column;
                 padding: 10px 0;
 
-                .menu-item {
-                    color: #424242;
+                li {
                     border-bottom: 1px solid black;
                     width: 100%;
                     text-align: center;
+                    padding: 7px 0;
+                    
+                    .menu-item {
+                        color: #424242;
+                        text-align: center;
+                    }
+    
                 }
-
-                .menu-item:last-child {
+                
+                li:last-child {
                     border-bottom: 0;
                 }
             }
