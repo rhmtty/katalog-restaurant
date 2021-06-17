@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=KoHo:ital,wght@0,200;0,300;1,200&display=swap" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <a href="#maincontent" class="skip-link">Menuju ke Konten</a>
+    <a href="#content" class="skip-link">Menuju ke Konten</a>
     <header>
         <div class="header-logo">
             <div class="box-img" tabindex="0">
@@ -19,15 +19,15 @@
                 Restoku, Sob!
             </h1>
         </div>
-        <a href="#" id="menu" class="hamburger" tabindex="0">☰</a>
+        <a href="#" id="hamburgerButton" class="hamburger" tabindex="0">☰</a>
 
-        <nav>
+        <nav id="navDrawer">
             <ul class="menu">
                 <li>
                     <a href="/" class="menu-item">Home</a>
                 </li>
                 <li>
-                    <a href="/#" class="menu-item">Favorite</a>
+                    <a href="/#/favorite" class="menu-item">Favorite</a>
                 </li>
                 <li>
                     <a href="https://www.instagram.com/rhmt_ty/" target="_blank" class="menu-item">About Us</a>
@@ -38,7 +38,7 @@
     </header>
 
     
-    <main id="maincontent">
+    <main>
         <div class="hero-wrapper">
             <img src="./images/heros/hero-image_2.jpg" alt="hero image" class="hero-img">
             <div class="hero-description">
@@ -46,9 +46,8 @@
                 <h2 class="hero-subtitle">Tidak perlu keluar rumah cukup gunakan gagdet Anda dimanapun dan kapanpun</h2>
             </div>
         </div>
-        <section class="main-content">
-            <h2 class="content-title">Daftar Restoran</h2>
-            <div class="resto-lists" id="resto-lists"></div>
+        <section class="main-content" id="maincontent">
+            
         </section>
     </main>
 
