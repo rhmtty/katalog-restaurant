@@ -1,13 +1,20 @@
+import RestaurantApiSource from '../../data/restaurant-api-source';
+import { createRestoItemTemplate } from '../templates/template-creator';
+
 const Resto = {
   async render() {
     return `
-        <h2 class="content-title" id="content">Daftar Restoran</h2>
-        <div class="resto-lists"></div>
+      <h2 class="content-title" id="content">Daftar Restoran</h2>
+      <div class="resto-list" id="restoList"></div>
     `;
   },
 
   async afterRender() {
-    // Fungsi ini akan di panggil setelah render()
+    const restaurants = await RestaurantApiSource.listRestaurants();
+    const restoContainer = document.querySelector('#restoList');
+    restaurants.forEach((resto) => {
+      restoContainer.innerHTML += createRestoItemTemplate(resto);
+    });
   },
 };
 

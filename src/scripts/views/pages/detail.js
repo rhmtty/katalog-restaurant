@@ -1,10 +1,19 @@
+import RestaurantApiSource from '../../data/restaurant-api-source';
+import UrlParser from '../../routes/url-parser';
+import { createRestoDetailTemplate } from '../templates/template-creator';
+
 const Detail = {
   async render() {
-    return `<h2 class="content-title" id="content">Detail Page</h2>`;
+    return `
+      <div id="detailResto" class="detail-resto"></div>
+    `;
   },
 
   async afterRender() {
-    // Fungsi ini akan di panggil setelah render()
+    const url = UrlParser.parseActiveUrlWithoutCombiner();
+    const resto = await RestaurantApiSource.detailRestaurant(url.id);
+    const restoContainer = document.querySelector('#detailResto');
+    restoContainer.innerHTML += createRestoDetailTemplate(resto);
   },
 };
 
