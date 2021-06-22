@@ -1,8 +1,10 @@
 const Favorite = {
   async render() {
     return `
-        <h2 class="content-title" id="content">Your Favorite Resto</h2>
-        <div class="resto-lists"></div>
+      <hero-section></hero-section>
+      <section class="main-content" id="maincontent">
+        <h2 class="content-title" id="contentTitle">Daftar Restoran Favorit Anda</h2>
+      </section>
     `;
   },
 

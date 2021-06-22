@@ -42,7 +42,8 @@ a {
 
 // Header
 .header-scroll{
-    background-color: rgba(0,0,0,.7);
+    background-color: #000000;
+    // background-color: rgba(0,0,0,.7);
 } 
 
 header {
@@ -57,6 +58,7 @@ header {
     z-index: 10;
     color: #fdfaf6;
     transition: all 0.3s;
+    background-color: #000000;
 
     .hamburger {
         font-size: 2rem;
@@ -169,12 +171,12 @@ main {
             font-weight: 600;
         }
     
-        .resto-list {
+        resto-list {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             padding: 45px;
     
-            .resto-item {
+            resto-item {
                 position: relative;
                 overflow: hidden;
 

@@ -16,7 +16,7 @@ const DrawerInitiator = {
 
   _closeDrawer(event, drawer) {
     event.stopPropagation();
-    drawer.classList.remove('open');
+    drawer.classList.remove('menu-mobile');
   },
 };
 
