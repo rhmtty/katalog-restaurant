@@ -10,8 +10,13 @@ class RestoItemComponent extends HTMLElement {
     const { id, pictureId, name, city, rating, description } = this._resto;
     this.innerHTML = `
       <a href="/#/detail/${id}"><img class="img-thumbnail" src="${CONFIG.BASE_IMAGE_URL + pictureId}" alt="${name}"></a>
-      <p class="city">${city}</p>
-      <span class="rating">${rating}</span>
+      <p class="city">
+        ${city}
+      </p>
+      <span class="rating">
+        <i class="fas fa-star"></i>
+        ${rating}
+      </span>
       <div class="content">
         <h1 class="title"><strong><a href="/#/detail/${id}">${name}</a></strong></h1>
         <p class="description">${description}</p>

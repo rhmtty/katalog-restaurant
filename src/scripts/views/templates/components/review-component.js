@@ -12,9 +12,9 @@ class ReviewsComponent extends HTMLElement {
                 <i class="fas fa-user-tie"></i>
             </span>
             <div class="detail__review">
-                <p class="name">${name}</p>
-                <span class="date">${date}</span>
-                <p class="comment">${review}</p>
+                <p class="name__text">${name}</p>
+                <span class="date__text">${date}</span>
+                <p class="review__text">${review}</p>
             </div>
         </div>
     `;

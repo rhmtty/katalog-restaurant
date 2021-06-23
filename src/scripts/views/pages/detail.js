@@ -3,6 +3,7 @@ import RestaurantApiSource from '../../data/restaurant-api-source';
 import UrlParser from '../../routes/url-parser';
 import '../templates/components/detailresto-component';
 import '../templates/components/review-component';
+import '../../../styles/detail.scss';
 
 const Detail = {
   async render() {
@@ -13,14 +14,14 @@ const Detail = {
 
   async afterRender() {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
-    const resto = await RestaurantApiSource.detailRestaurant(url.id);
+    const restaurant = await RestaurantApiSource.detailRestaurant(url.id);
     const restoContainer = document.querySelector('#maincontent');
     const restoDetail = document.createElement('resto-detail');
-    restoDetail.detailRestaurant = resto;
+    restoDetail.detailRestaurant = restaurant.restaurant;
     restoContainer.appendChild(restoDetail);
 
     // kode untuk menampilkan review pada halaman detail
-    const reviews = resto.restaurant.customerReviews;
+    const reviews = restaurant.restaurant.customerReviews;
     const reviewContainer = document.querySelector('#reviewContainer');
     reviews.map((review) => {
       const reviewItem = document.createElement('review-section');

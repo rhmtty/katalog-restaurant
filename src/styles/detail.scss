@@ -1,0 +1,114 @@
+.detail__section {
+    display: grid;
+    min-height: calc(100vh - 97px);
+    position: relative;
+    grid-template-columns: repeat(2, 1fr);
+    overflow: hidden;
+    background-color: #f7f7f6;
+
+    .detail__image {
+        width: calc(58.4vw - 22px);
+        min-height: calc(100vh - 97px);
+        position: relative;
+        
+        img {
+            width: 100%;
+            height: 100%;
+            filter: brightness(50%);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .rating {
+            position: absolute;
+            top: 10px;
+            right: 0;
+            background-color: #064420;
+            padding: 7px;
+            color: #e4efe7;
+            width: 65px;
+        }
+
+        .name__wrapper {
+            position: absolute;
+            top: 40%;
+            left: 10%;
+            color: #e4efe7;
+            vertical-align: middle;
+            
+            h2 {
+                line-height: 1;
+                width: 100%;
+                font-size: 5rem;
+                letter-spacing: 7px;
+            }
+        }
+    }
+
+    .detail__article {
+        width: calc(41.6vw - 22px);
+        min-height: calc(100vh - 97px);
+        padding: 0 2rem;
+
+        .categories {
+            width: 100%;
+            margin: 1.2em 0;
+            justify-content: space-between;
+            
+            .category__name {
+                color: #e4efe7;
+                background-color: #064420;
+                padding: 3px 15px;
+                border-radius: 10px;
+                margin-right: 5px;
+                font-size: 1em;
+            }
+        }
+
+        .address {
+            margin-bottom: 5px;
+        }
+
+        .description {
+            margin-bottom: 4px;
+        }
+
+        .menus {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            margin-bottom: 1em;
+
+            li {
+                list-style: circle;
+            }
+        }
+    }
+}
+
+.customer__reviews-section {
+    margin-top: 4rem;
+
+    .review__box {
+        display: grid;
+        grid-template-columns: repeat(2, 0.2fr 2fr);
+        border: solid 1px #c8c8c8;
+        padding: 10px;
+        margin: 12px 0 10px 0;
+
+        .name__text {
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .date__text {
+            font-size: 15px;
+            color: #555555;
+            display: block;
+        }
+
+        .review__text {
+            margin-top: 15px;
+        }
+    }
+}
