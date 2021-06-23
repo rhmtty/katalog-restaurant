@@ -7,27 +7,8 @@ class DetailRestoComponent extends HTMLElement {
     this.render();
   }
 
-  // eslint-disable-next-line class-methods-use-this
-  _customerReviewsTemplate(review) {
-    const { name, date, review: customerReview } = review;
-    return `
-      <div class="review__box">
-        <span style="color: #064420; font-size: 3em">
-          <i class="fas fa-user-tie"></i>
-        </span>
-        <div class="detail__review">
-          <p class="name">${name}</p>
-          <span class="date">${date}</span>
-          <p class="comment">${customerReview}</p>
-        </div>
-      </div>
-    `;
-  }
-
   render() {
     const { pictureId, rating, name, address, description } = this._restaurant.restaurant;
-    const reviews = this._restaurant.restaurant.customerReviews;
-    console.log(reviews);
 
     this.innerHTML = `
       <section>
@@ -49,12 +30,9 @@ class DetailRestoComponent extends HTMLElement {
           </h3>
           <p class="description">${description}</p>
         </article>
-        <div class="customer_reviews-wrapper">
+        <div id="reviewContainer" class="customer_reviews-wrapper">
           <h2>Reviews</h2>
-          ${reviews.forEach((review) => {
-            this.innerHTML = this._customerReviewsTemplate(review);
-            console.log(this._customerReviewsTemplate(review));
-          })}
+
         </div>
       </section>`;
   }
