@@ -12,7 +12,7 @@ class DetailRestoComponent extends HTMLElement {
     this.innerHTML = `
       <section class="detail__section">
         <div class="detail__image">
-          <img src="${CONFIG.BASE_IMAGE_URL + pictureId}" alt="">
+          <img src="${CONFIG.BASE_IMAGE_URL + pictureId}" alt="${name}">
           <strong class="rating">
             <i class="fas fa-star"></i>
             ${rating}
@@ -49,10 +49,25 @@ class DetailRestoComponent extends HTMLElement {
           </div>
         </article>
       </section>
-      <section id="reviewContainer" class="customer__reviews-section">
+      <section class="customer__reviews-section">
         <h2>${customerReviews.length} Reviews</h2>
+        <div id="all-reviews">
 
-      </section>`;
+        </div>
+        <form action="/" method="POST" id="review-form">
+          <div class="form__input">
+            <h2>Add New Review</h2>
+            <label for="name">Name</label>
+            <input type="text" id="name-input" name="name" placeholder="Type Your name.." required>
+            <label for="review">Review</label>
+            <textarea type="text" id="review-input" name="review" placeholder="Type Your review.." required></textarea>
+          </div>
+          <button id="formBtn">SUBMIT</button>
+        </form>
+      </section>
+      <button class="btn-favorite">
+        <i class="fal fa-heart"></i>
+      </button>`;
   }
 }
 

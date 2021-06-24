@@ -1,0 +1,86 @@
+@media screen and (max-width: 1091px) {
+    .detail__section {
+        .categories {
+            font-size: 17px;
+        }
+
+        .description {
+            font-size: 21px;
+        }
+
+        .menus {
+            font-size: 17px;
+        }
+    }
+}
+
+@media screen and (max-width: 715px) {
+    .detail__section {
+        grid-template-columns: 1fr;
+
+        .detail__image {
+            width: 100%;
+        }
+
+        .detail__article {
+            width: 100%;
+
+            .menus {
+                font-size: 20px;
+                column-gap: 14px;
+            }
+        }
+    }
+
+    .review__box, .form__input, #formBtn {
+        width: 100% !important;
+
+        .date__text {
+            font-size: 17px !important;
+        }
+
+        .review__text {
+            font-size: 22px !important;
+        }
+    }
+}
+
+@media screen and (max-width: 435px) {
+    .detail__image {
+        min-height: 55vh !important;
+        
+        .name__wrapper h2 {
+            font-size: 36px !important;
+        }
+    }
+
+    .categories, .description, .address {
+        font-size: 27px !important;
+    }
+
+    .menus {
+        grid-template-columns: 1fr !important;
+        font-size: 26px !important;
+    }
+
+    label {
+        font-size: 25px;
+    }
+
+    input, textarea {
+        font-size: 17px;
+    }
+
+    button {
+        font-size: 20px;
+        height: 50px !important;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .menus {
+        grid-template-columns: 1fr !important;
+        row-gap: 10px;
+        margin-top: 10px;
+    }
+}

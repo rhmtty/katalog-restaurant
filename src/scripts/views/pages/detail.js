@@ -4,6 +4,7 @@ import UrlParser from '../../routes/url-parser';
 import '../templates/components/detailresto-component';
 import '../templates/components/review-component';
 import '../../../styles/detail.scss';
+import '../../../styles/detail-responsive.scss';
 
 const Detail = {
   async render() {
@@ -22,7 +23,7 @@ const Detail = {
 
     // kode untuk menampilkan review pada halaman detail
     const reviews = restaurant.restaurant.customerReviews;
-    const reviewContainer = document.querySelector('#reviewContainer');
+    const reviewContainer = document.querySelector('#all-reviews');
     reviews.map((review) => {
       const reviewItem = document.createElement('review-section');
       reviewItem.reviews = review;

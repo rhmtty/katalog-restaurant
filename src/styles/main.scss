@@ -45,7 +45,7 @@ a {
     background-color: #FFF;
     box-shadow: 0 2px 12px 0 rgb(36, 50, 66 / 8%);
     top: -5px;
-    height: 70px;
+    height: 80px;
 }
 
 header {
@@ -72,6 +72,8 @@ header {
         min-width: 44px;
         min-height: 44px;
         text-align: center;
+        border: none;
+        background: transparent;
     }
     
     .header-logo {
@@ -261,4 +263,3 @@ footer {
     background-color: #064420;
     font-weight: 900;
 }
-
