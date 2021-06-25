@@ -9,7 +9,11 @@ const Favorite = {
   },
 
   async afterRender() {
-    // Fungsi ini akan dipanggil setelah render()
+    // const restaurants = await RestaurantApiSource.listRestaurants();
+    const restoContainer = document.querySelector('#maincontent');
+    const restoList = document.createElement('resto-list');
+    // restoList.restaurants = restaurants;
+    restoContainer.appendChild(restoList);
   },
 };
 
