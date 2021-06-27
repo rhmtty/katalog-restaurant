@@ -5,11 +5,14 @@ import '../templates/components/detailresto-component';
 import '../templates/components/review-component';
 import '../../../styles/detail.scss';
 import '../../../styles/detail-responsive.scss';
+import LikeButtonInitiator from '../../utils/favorite-button-initiator';
+// import LikeButtonInitiator from '../../utils/favorite-button-initiator';
 
 const Detail = {
   async render() {
     return `
       <section class="main-content" id="maincontent"></section>
+      <div id="likeButtonContainer"></div>
     `;
   },
 
@@ -28,6 +31,11 @@ const Detail = {
       const reviewItem = document.createElement('review-section');
       reviewItem.reviews = review;
       reviewContainer.appendChild(reviewItem);
+    });
+
+    LikeButtonInitiator.init({
+      likeButtonContainer: document.querySelector('#likeButtonContainer'),
+      restaurant,
     });
   },
 };

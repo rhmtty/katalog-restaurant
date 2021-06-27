@@ -167,6 +167,7 @@
     border: none;
     background: transparent;
     cursor: pointer;
+    z-index: 100;
 
     &:hover, &:focus {
         filter: brightness(75%);

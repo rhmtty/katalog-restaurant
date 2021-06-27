@@ -64,10 +64,7 @@ class DetailRestoComponent extends HTMLElement {
           </div>
           <button id="formBtn">SUBMIT</button>
         </form>
-      </section>
-      <button class="btn-favorite">
-        <i class="fal fa-heart"></i>
-      </button>`;
+      </section>`;
   }
 }
 
