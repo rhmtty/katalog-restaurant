@@ -1,3 +1,4 @@
+import API_ENDPOINT from '../globals/api-endpoint';
 import CONFIG from '../globals/config';
 
 const CacheHelper = {
@@ -40,6 +41,10 @@ const CacheHelper = {
 
   async _addCache(request) {
     const cache = await this._openCache();
+
+    if (API_ENDPOINT.ADD_REVIEW) {
+      return;
+    }
     cache.add(request);
   },
 };

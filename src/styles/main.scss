@@ -263,3 +263,25 @@ footer {
     background-color: #064420;
     font-weight: 900;
 }
+
+.notif {
+    position: fixed;
+    right: -1000px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 100px;
+    min-width: 100px;
+    min-height: 55px;
+    background: #146e3a;  
+    color: #e4efe7;  
+    padding: 10px;
+    border-radius: 3%;
+    transition: all .5s ease-in;
+    font-size: 17px;
+}
+
+.show-notif {
+    right: 0;
+}

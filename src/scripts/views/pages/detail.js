@@ -6,11 +6,14 @@ import '../templates/components/review-component';
 import '../../../styles/detail.scss';
 import '../../../styles/detail-responsive.scss';
 import LikeButtonInitiator from '../../utils/favorite-button-initiator';
-// import LikeButtonInitiator from '../../utils/favorite-button-initiator';
+import { createNotifTemplate } from '../templates/template-creator';
 
 const Detail = {
   async render() {
     return `
+      <div class="notif">
+        <p class="notif-text"></p>
+      </div>
       <section class="main-content" id="maincontent"></section>
       <div id="likeButtonContainer"></div>
     `;
@@ -21,6 +24,7 @@ const Detail = {
     const restaurant = await RestaurantApiSource.detailRestaurant(url.id);
     const restoContainer = document.querySelector('#maincontent');
     const restoDetail = document.createElement('resto-detail');
+
     restoDetail.detailRestaurant = restaurant.restaurant;
     restoContainer.appendChild(restoDetail);
 
@@ -36,6 +40,30 @@ const Detail = {
     LikeButtonInitiator.init({
       likeButtonContainer: document.querySelector('#likeButtonContainer'),
       restaurant,
+    });
+
+    // blok kode untuk menambah review
+    const inputName = document.querySelector('#input-name');
+    const inputReview = document.querySelector('#input-review');
+    const buttonSubmit = document.querySelector('#formBtn');
+    const notif = document.querySelector('.notif');
+    const notifText = document.querySelector('.notif-text');
+    buttonSubmit.addEventListener('click', async (event) => {
+      event.preventDefault();
+      const review = {
+        message: 'Review sukses di tambahkan!',
+        id: url.id,
+        name: inputName.value,
+        review: inputReview.value,
+      };
+      await RestaurantApiSource.postReview(review);
+
+      notifText.innerHTML += createNotifTemplate(review.message);
+      notif.classList.add('show-notif');
+
+      setTimeout(() => {
+        notif.classList.remove('show-notif');
+      }, 5000);
     });
   },
 };

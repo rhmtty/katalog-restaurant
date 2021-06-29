@@ -7,7 +7,7 @@ const Resto = {
     return `
       <hero-section></hero-section>
       <section class="main-content" id="maincontent">
-        <h2 class="content-title" id="contentTitle">Daftar Restoran</h2>
+        <h2 tabindex="0" class="content-title" id="contentTitle">Daftar Restoran</h2>
       </section>
     `;
   },
