@@ -109,14 +109,8 @@ const createLikedButtonTemplate = () => `
   </button>
 `;
 
-const createLoadingTemplate = () => `
-  <div class="loading-indicator">
-      <img src="./loading-indicator/loading_3.gif" alt="">
-  </div>
-`;
-
 const createNotifTemplate = (message) => `
   <p>${message}</p>
 `;
 
-export { createLikeButtonTemplate, createLikedButtonTemplate, createLoadingTemplate, createRestoDetailTemplate, createRestoItemTemplate, createCostumerReviewsTemplate, createNotifTemplate };
+export { createLikeButtonTemplate, createLikedButtonTemplate, createRestoDetailTemplate, createRestoItemTemplate, createCostumerReviewsTemplate, createNotifTemplate };
