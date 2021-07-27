@@ -97,13 +97,13 @@ const createCostumerReviewsTemplate = (reviews) => {
   `;
 };
 
-const createLikeButtonTemplate = () => `
+const createLikeRestoButtonTemplate = () => `
   <button id="likeButton" aria-label="like this resto" class="btn-favorite">
       <i class="fal fa-heart" aria-hidden="true"></i>
   </button>
 `;
 
-const createLikedButtonTemplate = () => `
+const createUnlikeRestoButtonTemplate = () => `
   <button tabindex="0" id="likeButton" aria-label="unlike this resto" class="btn-favorite">
       <i class="fas fa-heart" aria-hidden="true"></i>
   </button>
@@ -113,4 +113,4 @@ const createNotifTemplate = (message) => `
   <p>${message}</p>
 `;
 
-export { createLikeButtonTemplate, createLikedButtonTemplate, createRestoDetailTemplate, createRestoItemTemplate, createCostumerReviewsTemplate, createNotifTemplate };
+export { createLikeRestoButtonTemplate, createUnlikeRestoButtonTemplate, createRestoDetailTemplate, createRestoItemTemplate, createCostumerReviewsTemplate, createNotifTemplate };

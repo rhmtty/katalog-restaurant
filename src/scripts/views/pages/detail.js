@@ -5,8 +5,8 @@ import '../templates/components/detailresto-component';
 import '../templates/components/review-component';
 import '../../../styles/detail.scss';
 import '../../../styles/detail-responsive.scss';
-import LikeButtonInitiator from '../../utils/favorite-button-initiator';
 import { createNotifTemplate } from '../templates/template-creator';
+import LikeButtonPresenter from '../../utils/like-button-presenter';
 
 const Detail = {
   async render() {
@@ -28,6 +28,11 @@ const Detail = {
     restoDetail.detailRestaurant = restaurant.restaurant;
     restoContainer.appendChild(restoDetail);
 
+    LikeButtonPresenter.init({
+      likeButtonContainer: document.querySelector('#likeButtonContainer'),
+      restaurant,
+    });
+
     // kode untuk menampilkan review pada halaman detail
     const reviews = restaurant.restaurant.customerReviews;
     const reviewContainer = document.querySelector('#all-reviews');
@@ -35,11 +40,6 @@ const Detail = {
       const reviewItem = document.createElement('review-section');
       reviewItem.reviews = review;
       reviewContainer.appendChild(reviewItem);
-    });
-
-    LikeButtonInitiator.init({
-      likeButtonContainer: document.querySelector('#likeButtonContainer'),
-      restaurant,
     });
 
     // blok kode untuk menambah review
