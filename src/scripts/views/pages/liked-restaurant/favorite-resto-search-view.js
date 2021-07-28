@@ -1,11 +1,14 @@
+import { createRestoItemTemplate } from '../../templates/template-creator';
+
 /* eslint-disable class-methods-use-this */
 class FavoriteRestaurantSearchView {
   getTemplate() {
     return `
-      <div id="resto-search-container">
-        <input type="text" id="query">
-        <div class="resto-result-container">
-          <ul class="restaurants"></ul>
+      <div class="content">
+        <input id="query" type="text">
+        <h2 class="content__heading">Your Liked Restaurant</h2>
+        <div id="restaurants" class="restaurants">
+          
         </div>
       </div>
     `;
@@ -18,20 +21,23 @@ class FavoriteRestaurantSearchView {
   }
 
   showRestaurants(restaurants) {
+    this.showFavoriteRestaurants(restaurants);
+  }
+
+  showFavoriteRestaurants(restaurants = []) {
     let html;
-
-    if (restaurants.length > 0) {
-      html = restaurants.reduce(
-        (carry, restaurant) => carry.concat(`<li class="restaurant"><span class="resto__title">${restaurant.title || '-'}</span></li>`),
-        '',
-      );
+    if (restaurants.length) {
+      html = restaurants.reduce((carry, resto) => carry.concat(createRestoItemTemplate(resto)), '');
     } else {
-      html = '<div class="restaurants__not__found">Restaurant tidak ditemukan</div>';
+      html = this._getEmptyRestaurantTemplate();
     }
+    document.getElementById('restaurants').innerHTML = html;
 
-    document.querySelector('.restaurants').innerHTML = html;
+    document.getElementById('restaurants').dispatchEvent(new Event('restaurants:updated'));
+  }
 
-    document.getElementById('resto-search-container').dispatchEvent(new Event('restaurants:searched:updated'));
+  _getEmptyRestaurantTemplate() {
+    return '<div class="resto-item__not__found">Tidak ada restaurants untuk ditampilkan</div>';
   }
 }
 

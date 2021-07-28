@@ -46,11 +46,10 @@ describe('Searching Resto', () => {
     });
 
     it('should show the restaurants found by Favorite Restaurants', (done) => {
-      document.getElementById('resto-search-container')
-        .addEventListener('restaurants:searched:updated', () => {
-          expect(document.querySelectorAll('.restaurant').length).toEqual(3);
-          done();
-        });
+      document.getElementById('restaurants').addEventListener('restaurants:updated', () => {
+        expect(document.querySelectorAll('.resto-item').length).toEqual(3);
+        done();
+      });
 
       favoriteRestaurants.searchRestaurants.withArgs('restaurant a').and.returnValues([
         { id: 111, title: 'restaurant abc' },
@@ -62,7 +61,7 @@ describe('Searching Resto', () => {
     });
 
     it('should show the name of the restaurants found by Favorite Restaurants', (done) => {
-      document.getElementById('resto-search-container').addEventListener('restaurants:searched:updated', () => {
+      document.getElementById('restaurants').addEventListener('restaurants:updated', () => {
         const restaurantTitles = document.querySelectorAll('.resto__title');
         expect(restaurantTitles.item(0).textContent).toEqual('restaurant abc');
         expect(restaurantTitles.item(1).textContent).toEqual('ada juga restaurant abcde');
@@ -81,7 +80,7 @@ describe('Searching Resto', () => {
     });
 
     it('should show - when the restaurant returned does not contain title', (done) => {
-      document.getElementById('resto-search-container').addEventListener('restaurants:searched:updated', () => {
+      document.getElementById('restaurants').addEventListener('restaurants:updated', () => {
         const restaurantTitles = document.querySelectorAll('.resto__title');
         expect(restaurantTitles.item(0).textContent).toEqual('-');
         done();
@@ -119,8 +118,8 @@ describe('Searching Resto', () => {
 
   describe('When no favorite restaurants could be found', () => {
     it('should show the empty message', (done) => {
-      document.getElementById('resto-search-container').addEventListener('restaurants:searched:updated', () => {
-        expect(document.querySelectorAll('.restaurants__not__found').length).toEqual(1);
+      document.getElementById('restaurants').addEventListener('restaurants:updated', () => {
+        expect(document.querySelectorAll('.resto-item__not__found').length).toEqual(1);
         done();
       });
 
@@ -130,8 +129,8 @@ describe('Searching Resto', () => {
     });
 
     it('should not show any restaurant', (done) => {
-      document.getElementById('resto-search-container').addEventListener('restaurants:searched:updated', () => {
-        expect(document.querySelectorAll('.restaurant').length).toEqual(0);
+      document.getElementById('restaurants').addEventListener('restaurants:updated', () => {
+        expect(document.querySelectorAll('.resto-item').length).toEqual(0);
         done();
       });
 

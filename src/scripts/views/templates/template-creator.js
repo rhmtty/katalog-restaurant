@@ -4,17 +4,17 @@ const createRestoItemTemplate = (restaurantItem) => {
   const { id, pictureId, name, city, rating, description } = restaurantItem;
 
   return `
-    <a tabindex="0" href="/#/detail/${id}"><img class="img-thumbnail" src="${CONFIG.BASE_IMAGE_URL + pictureId}" alt="${name}"></a>
+    <a tabindex="0" href="/#/detail/${id}"><img class="img-thumbnail" src="${CONFIG.BASE_IMAGE_URL + pictureId}" alt="${name || '-'}"></a>
     <p tabindex="0" class="city">
-      ${city}
+      ${city || '-'}
     </p>
     <span tabindex="0" class="rating">
       <i class="fas fa-star"></i>
-      ${rating}
+      ${rating || '-'}
     </span>
     <div class="content">
-      <h1 tabindex="0" class="title"><strong><a href="/#/detail/${id}">${name}</a></strong></h1>
-      <p tabindex="0" class="description">${description}</p>
+      <h1 tabindex="0" class="title"><strong><a href="/#/detail/${id}">${name || '-'}</a></strong></h1>
+      <p tabindex="0" class="description">${description || '-'}</p>
     </div>
   `;
 };
