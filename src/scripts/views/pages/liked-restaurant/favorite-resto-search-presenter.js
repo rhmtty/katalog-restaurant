@@ -12,25 +12,38 @@ class FavoriteRestoSearchPresenter {
     });
   }
 
-  _searchRestaurants(latestQuery) {
-    this._latestQuery = latestQuery;
-    this._favoriteRestaurants.searchRestaurants(this._latestQuery);
-  }
+  async _searchRestaurants(latestQuery) {
+    this._latestQuery = latestQuery.trim();
 
-  get latestQuery() {
-    return this._latestQuery;
+    let foundRestaurants;
+    if (this.latestQuery.length > 0) {
+      foundRestaurants = await this._favoriteRestaurants.searchRestaurants(this.latestQuery);
+    } else {
+      foundRestaurants = await this._favoriteRestaurants.getAllRestaurants();
+    }
+
+    this._showFoundRestaurants(foundRestaurants);
   }
 
   _showFoundRestaurants(restaurants) {
-    console.log(restaurants);
-    const html = restaurants.reduce(
-      (carry, restaurant) => carry.concat(`<li class="restaurant"><span class="resto__title">${restaurant.title || '-'}</span></li>`),
-      '',
-    );
+    let html;
+
+    if (restaurants.length > 0) {
+      html = restaurants.reduce(
+        (carry, restaurant) => carry.concat(`<li class="restaurant"><span class="resto__title">${restaurant.title || '-'}</span></li>`),
+        '',
+      );
+    } else {
+      html = '<div class="restaurants__not__found">Restaurant tidak ditemukan</div>';
+    }
 
     document.querySelector('.restaurants').innerHTML = html;
 
     document.getElementById('resto-search-container').dispatchEvent(new Event('restaurants:searched:updated'));
+  }
+
+  get latestQuery() {
+    return this._latestQuery;
   }
 }
 

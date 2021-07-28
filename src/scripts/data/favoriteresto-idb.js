@@ -35,11 +35,7 @@ const FavoriteRestoIdb = {
   },
 
   async searchRestaurants(latestQuery) {
-    this._latestQuery = latestQuery;
-
-    const foundRestaurants = await this._favoriteRestaurants.searchRestaurants(this.latestQuery);
-
-    this._showFoundRestaurants(foundRestaurants);
+    
   },
 
 };
