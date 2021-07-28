@@ -1,29 +1,33 @@
+/* eslint-disable no-new */
 import FavoriteRestoIdb from '../../data/favoriteresto-idb';
 import '../templates/components/resto-list-component';
+import FavoriteRestoSearchPresenter from './liked-restaurant/favorite-resto-search-presenter';
+import FavoriteRestaurantSearchView from './liked-restaurant/favorite-resto-search-view';
+import FavoriteRestaurantShowPresenter from './liked-restaurant/favorite-resto-show-presenter';
+
+const view = new FavoriteRestaurantSearchView();
 
 const Favorite = {
   async render() {
-    return `
-      <hero-section></hero-section>
-      <section class="main-content" id="maincontent">
-        <h2 tabindex="0" class="content-title" id="contentTitle">Oops, tidak ada restoran favorit</h2>
-      </section>
-    `;
+    return view.getTemplate();
   },
 
   async afterRender() {
-    const restaurants = await FavoriteRestoIdb.getAllRestaurants();
-    const restoContainer = document.querySelector('#maincontent');
-    const restoList = document.createElement('resto-list');
-    const titleElement = document.querySelector('#contentTitle');
+    new FavoriteRestaurantShowPresenter({ view, favoriteRestaurants: FavoriteRestoIdb });
+    new FavoriteRestoSearchPresenter({ view, favoriteRestaurants: FavoriteRestoIdb });
 
-    if (restaurants.length !== 0) {
-      titleElement.innerText = `Daftar Restoran favorit`;
-      restoContainer.appendChild(titleElement);
-    }
+    // const restaurants = await FavoriteRestoIdb.getAllRestaurants();
+    // const restoContainer = document.querySelector('#maincontent');
+    // const restoList = document.createElement('resto-list');
+    // const titleElement = document.querySelector('#contentTitle');
 
-    restoList.restaurants = restaurants;
-    restoContainer.appendChild(restoList);
+    // if (restaurants.length !== 0) {
+    //   titleElement.innerText = `Daftar Restoran favorit`;
+    //   restoContainer.appendChild(titleElement);
+    // }
+
+    // restoList.restaurants = restaurants;
+    // restoContainer.appendChild(restoList);
   },
 };
 

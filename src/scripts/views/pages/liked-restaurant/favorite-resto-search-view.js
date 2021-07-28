@@ -4,12 +4,16 @@ import { createRestoItemTemplate } from '../../templates/template-creator';
 class FavoriteRestaurantSearchView {
   getTemplate() {
     return `
+      <hero-section></hero-section>
+      <section class="main-content" id="maincontent">
+        <h2 tabindex="0" class="content-title" id="contentTitle">Oops, tidak ada restoran favorit</h2>
+      </section>
       <div class="content">
         <input id="query" type="text">
-        <h2 class="content__heading">Your Liked Restaurant</h2>
-        <div id="restaurants" class="restaurants">
-          
-        </div>
+        <h2 class="content__heading">Your Liked Movie</h2>
+         <div id="restaurants" class="restaurants">
+                    
+         </div>
       </div>
     `;
   }
@@ -37,7 +41,7 @@ class FavoriteRestaurantSearchView {
   }
 
   _getEmptyRestaurantTemplate() {
-    return '<div class="resto-item__not__found">Tidak ada restaurants untuk ditampilkan</div>';
+    return '<div class="resto-item__not__found">Tidak ada restaurant untuk ditampilkan</div>';
   }
 }
 
