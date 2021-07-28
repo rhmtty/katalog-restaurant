@@ -35,6 +35,19 @@ const FavoriteRestoArray = {
     // kecuali film dengan id == id
     favoriteRestaurants = favoriteRestaurants.filter((resto) => resto.id != id);
   },
+
+  searchRestaurants(query) {
+    return this.getAllRestaurants()
+      .filter((resto) => {
+        const loweredCaseRestaurantTitle = (resto.title || '-').toLowerCase();
+        const jammedRestaurantTitle = loweredCaseRestaurantTitle.replace(/\s/g, '');
+
+        const loweredcaseQuery = query.toLowerCase();
+        const jammedQuery = loweredcaseQuery.replace(/\s/g, '');
+
+        return jammedRestaurantTitle.indexOf(jammedQuery) !== -1;
+      });
+  },
 };
 
 describe('Favorite Resto Array Contract Test Implementation', () => {
