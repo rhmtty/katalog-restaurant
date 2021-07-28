@@ -1,9 +1,12 @@
+/* eslint-disable class-methods-use-this */
 import FavoriteRestoIdb from '../src/scripts/data/favoriteresto-idb';
 import FavoriteRestoSearchPresenter from '../src/scripts/views/pages/liked-restaurant/favorite-resto-search-presenter';
+import FavoriteRestaurantSearchView from '../src/scripts/views/pages/liked-restaurant/favorite-resto-search-view';
 
 describe('Searching Resto', () => {
   let presenter;
   let favoriteRestaurants;
+  let view;
 
   const searchRestaurants = (query) => {
     const queryElement = document.getElementById('query');
@@ -12,21 +15,15 @@ describe('Searching Resto', () => {
   };
 
   const setRestaurantSearchContainer = () => {
-    document.body.innerHTML = `
-        <div id="resto-search-container">
-            <input id="query" type="text">
-            <div class="resto-result-container">
-                <ul class="restaurants">
-                </ul>
-            </div>
-        </div>
-    `;
+    view = new FavoriteRestaurantSearchView();
+    document.body.innerHTML = view.getTemplate();
   };
 
   const constructPresenter = () => {
     favoriteRestaurants = spyOnAllFunctions(FavoriteRestoIdb);
     presenter = new FavoriteRestoSearchPresenter({
       favoriteRestaurants,
+      view,
     });
   };
 
