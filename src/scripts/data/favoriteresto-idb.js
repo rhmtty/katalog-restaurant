@@ -34,6 +34,14 @@ const FavoriteRestoIdb = {
     return (await dbPromise).delete(OBJECT_STORE_NAME, id);
   },
 
+  async searchRestaurants(latestQuery) {
+    this._latestQuery = latestQuery;
+
+    const foundRestaurants = await this._favoriteRestaurants.searchRestaurants(this.latestQuery);
+
+    this._showFoundRestaurants(foundRestaurants);
+  },
+
 };
 
 export default FavoriteRestoIdb;
