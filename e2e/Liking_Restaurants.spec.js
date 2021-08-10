@@ -31,3 +31,24 @@ Scenario("liking one restaurant", async ({ I }) => {
 
   assert.strictEqual(firstRestaurantTitle, likedRestaurant);
 });
+
+Scenario("searching restaurants", async ({ I }) => {
+  I.see("Oops, tidak ada restoran favorit", ".resto-item__not__found");
+
+  I.amOnPage("/");
+
+  I.seeElement("strong a");
+
+  const titles = [];
+
+  for (let i = 1; i <= 3; i++) {
+    I.click(locate("strong a").at(i));
+    I.seeElement("#likeButton");
+    I.click("#likeButton");
+    titles.push(await I.grabTextFrom(".title"));
+    I.amOnPage("/");
+  }
+
+  I.amOnPage("/#/favorite");
+  I.seeElement("#query");
+});
