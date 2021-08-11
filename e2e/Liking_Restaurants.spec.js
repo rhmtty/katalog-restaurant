@@ -51,4 +51,24 @@ Scenario("searching restaurants", async ({ I }) => {
 
   I.amOnPage("/#/favorite");
   I.seeElement("#query");
+
+  const searchQuery = titles[1].substring(1, 3);
+  const matchingRestaurants = titles.filter(
+    (title) => title.indexOf(searchQuery) !== -1
+  );
+
+  I.fillField("#query", searchQuery);
+  I.pressKey("Enter");
+
+  const visibleLikedRestaurants = await I.grabNumberOfVisibleElements(
+    "resto-item"
+  );
+  assert.strictEqual(matchingRestaurants.length, visibleLikedRestaurants);
+
+  matchingRestaurants.forEach(async (title, index) => {
+    const visibleTitle = await I.grabTextFrom(
+      locate("resto-item").at(index + 1)
+    );
+    assert.strictEqual(title, visibleTitle);
+  });
 });
