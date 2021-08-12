@@ -8,7 +8,9 @@
     "build": "webpack --config webpack.prod.js",
     "test": "karma start",
     "lint": "eslint ./src",
-    "e2e": "codeceptjs run"
+    "e2e": "codeceptjs run",
+    "build-image": "node sharp.js",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "your_name <your.email@domain.com>",
@@ -24,6 +26,8 @@
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.23.4",
     "html-webpack-plugin": "^4.3.0",
+    "imagemin-mozjpeg": "^9.0.0",
+    "imagemin-webpack-plugin": "^2.4.2",
     "jasmine-ajax": "^4.0.0",
     "jasmine-core": "^3.5.0",
     "karma": "^6.3.2",
@@ -35,6 +39,7 @@
     "node-sass": "^5.0.0",
     "puppeteer": "^10.1.0",
     "sass-loader": "^10.1.1",
+    "sharp": "^0.28.3",
     "style-loader": "^1.2.1",
     "webpack": "^4.46.0",
     "webpack-cli": "^3.3.12",
@@ -44,7 +49,9 @@
     "whatwg-fetch": "^3.2.0"
   },
   "dependencies": {
+    "express": "^4.17.1",
     "idb": "^6.1.2",
+    "lazysizes": "^5.3.2",
     "regenerator-runtime": "^0.13.5",
     "serviceworker-webpack-plugin": "^1.0.1"
   }
