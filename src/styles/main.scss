@@ -114,6 +114,7 @@ header {
             }
             
             .menu-item {
+                display: inline-block;
                 bottom: 0;
                 transition: all 0.5s;
                 position: relative;
@@ -284,4 +285,15 @@ footer {
 
 .show-notif {
     right: 0;
+}
+
+#query {
+    text-align: center;
+    margin: 20px auto;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: 375px;
+    padding: 10px;
+    border-radius: 10px;
 }

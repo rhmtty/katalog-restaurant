@@ -1,13 +1,13 @@
-import { createRestoItemTemplate } from '../../templates/template-creator';
-import '../../templates/components/resto-list-component'
+import '../../templates/components/resto-list-component';
 
 /* eslint-disable class-methods-use-this */
 class FavoriteRestaurantSearchView {
   getTemplate() {
     return `
       <hero-section></hero-section>
-      <input id="query" type="text">
+      <input id="query" placeholder="Ketikkan kata kunci pencarian" type="text">
       <section class="main-content" id="maincontent">
+        <h2 tabindex="0" class="content-title">Daftar Restoran Favorit</h2>
       </section>
     `;
   }
@@ -26,19 +26,20 @@ class FavoriteRestaurantSearchView {
     if (restaurants.length) {
       const restoContainer = document.querySelector('#maincontent');
       const restoList = document.createElement('resto-list');
-      
+
       restoList.restaurants = restaurants;
       restoContainer.appendChild(restoList);
-      
+
       // html = restaurants.reduce((carry, resto) => carry.concat(createRestoItemTemplate(resto)), '');
     } else {
       let html;
       html = this._getEmptyRestaurantTemplate();
       document.querySelector('#maincontent').innerHTML = html;
     }
-    
 
-    document.querySelector('#maincontent').dispatchEvent(new Event('restaurants:updated'));
+    document
+      .querySelector('#maincontent')
+      .dispatchEvent(new Event('restaurants:updated'));
   }
 
   _getEmptyRestaurantTemplate() {
@@ -47,11 +48,3 @@ class FavoriteRestaurantSearchView {
 }
 
 export default FavoriteRestaurantSearchView;
-
-{/* <div class="content">
-  <input id="query" type="text">
-  <h2 class="content__heading">Your Liked Movie</h2>
-    <div id="restaurants" class="restaurants">
-              
-    </div>
-</div> */}

@@ -1,24 +1,24 @@
-import CONFIG from "../../globals/config";
+import CONFIG from '../../globals/config';
 
 const createRestoItemTemplate = (restaurantItem) => {
   const { id, pictureId, name, city, rating, description } = restaurantItem;
 
   return `
     <a tabindex="0" href="/#/detail/${id}"><img class="img-thumbnail lazyload" src="${
-    CONFIG.BASE_IMAGE_URL + pictureId
-  }" alt="${name || "-"}"></a>
+  CONFIG.BASE_IMAGE_URL + pictureId
+}" alt="${name || '-'}"></a>
     <p tabindex="0" class="city">
-      ${city || "-"}
+      ${city || '-'}
     </p>
     <span tabindex="0" class="rating">
       <i class="fas fa-star"></i>
-      ${rating || "-"}
+      ${rating || '-'}
     </span>
     <div class="content">
       <h1 tabindex="0" class="title"><strong><a href="/#/detail/${id}">${
-    name || "-"
-  }</a></strong></h1>
-      <p tabindex="0" class="description">${description || "-"}</p>
+  name || '-'
+}</a></strong></h1>
+      <p tabindex="0" class="description">${description || '-'}</p>
     </div>
   `;
 };
@@ -39,8 +39,8 @@ const createRestoDetailTemplate = (restaurantDetail) => {
   <section class="detail__section">
       <div class="detail__image">
         <img tabindex="0" src="${
-          CONFIG.BASE_IMAGE_URL + pictureId
-        }" alt="${name}">
+  CONFIG.BASE_IMAGE_URL + pictureId
+}" alt="${name}">
         <strong tabindex="0" class="rating">
           <i class="fas fa-star"></i>
           ${rating}
@@ -52,12 +52,12 @@ const createRestoDetailTemplate = (restaurantDetail) => {
       <article class="detail__article">
         <div class="categories">
         ${categories
-          .map(
-            (category) => `
+    .map(
+      (category) => `
           <span tabindex="0" id="category" class="category__name">${category.name}</span>
-        `
-          )
-          .join("")}
+        `,
+    )
+    .join('')}
         </div>
         <h3 tabindex="0" class="address" style="color: #5165f4;">
             <i class="fad fa-map-marker-alt"></i>
@@ -68,23 +68,23 @@ const createRestoDetailTemplate = (restaurantDetail) => {
           <ul class="foods">
             <strong tabindex="0">Foods</strong>
             ${menus.foods
-              .map(
-                (food) => `
+    .map(
+      (food) => `
               <li tabindex="0">${food.name}</li>
-            `
-              )
-              .join("")}
+            `,
+    )
+    .join('')}
           </ul>
 
           <ul class="drinks">
             <strong tabindex="0">Drinks</strong>
             ${menus.drinks
-              .map(
-                (drink) => `
+    .map(
+      (drink) => `
               <li tabindex="0">${drink.name}</li>
-            `
-              )
-              .join("")}
+            `,
+    )
+    .join('')}
           </ul>
         </div>
       </article>
